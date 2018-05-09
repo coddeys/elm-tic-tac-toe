@@ -26939,19 +26939,16 @@ var _user$project$Main$win = function (board) {
 				_1: {ctor: '[]'}
 			}
 		});
-	return A2(
-		_elm_lang$core$Debug$log,
-		'win: ',
-		_elm_lang$core$List$head(
-			_elm_lang$core$List$concat(
-				A2(
-					_elm_lang$core$List$map,
-					_elm_lang$core$List$drop(2),
-					_elm_lang$core$List$concat(
-						A2(
-							_elm_lang$core$Basics_ops['++'],
-							rows,
-							A2(_elm_lang$core$Basics_ops['++'], columns, diagonals)))))));
+	return _elm_lang$core$List$head(
+		_elm_lang$core$List$concat(
+			A2(
+				_elm_lang$core$List$map,
+				_elm_lang$core$List$drop(2),
+				_elm_lang$core$List$concat(
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						rows,
+						A2(_elm_lang$core$Basics_ops['++'], columns, diagonals))))));
 };
 var _user$project$Main$swapPlayer = function (status) {
 	var _p9 = status;
@@ -26980,10 +26977,7 @@ var _user$project$Main$updateGame = F4(
 					return {ctor: '_Tuple2', _0: status, _1: newBoard};
 				} else {
 					if (_user$project$Main$isMoveAvailabe(newBoard)) {
-						var _p11 = A2(
-							_elm_lang$core$Debug$log,
-							'win:',
-							_user$project$Main$win(newBoard));
+						var _p11 = _user$project$Main$win(newBoard);
 						if (_p11.ctor === 'Just') {
 							return {
 								ctor: '_Tuple2',
@@ -27008,10 +27002,7 @@ var _user$project$Main$update = F2(
 	function (msg, model) {
 		var _p13 = msg;
 		if (_p13.ctor === 'Select') {
-			var _p14 = A2(
-				_elm_lang$core$Debug$log,
-				'updateGame:',
-				A4(_user$project$Main$updateGame, _p13._0, _p13._1, model.status, model.board));
+			var _p14 = A4(_user$project$Main$updateGame, _p13._0, _p13._1, model.status, model.board);
 			var status = _p14._0;
 			var board = _p14._1;
 			return A2(

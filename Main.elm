@@ -76,10 +76,6 @@ type Styles
     | NextTurn
 
 
-type alias Position =
-    ( Int, Int )
-
-
 
 -- UPDATE
 
@@ -96,7 +92,6 @@ update msg model =
             let
                 ( status, board ) =
                     updateGame x y model.status model.board
-                        |> Debug.log "updateGame:"
             in
             { model
                 | status = status
@@ -128,7 +123,6 @@ win board =
         |> List.map (List.drop 2)
         |> List.concat
         |> List.head
-        |> Debug.log "win: "
 
 
 checkDiagonals : Matrix (Maybe Player) -> Player -> List (List Player)
@@ -195,7 +189,7 @@ updateGame x y status board =
             if newBoard == board then
                 ( status, newBoard )
             else if isMoveAvailabe newBoard then
-                case Debug.log "win:" (win newBoard) of
+                case win newBoard of
                     Just pl ->
                         ( Win player, newBoard )
 
